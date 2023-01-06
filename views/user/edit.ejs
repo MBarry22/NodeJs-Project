@@ -1,0 +1,52 @@
+
+<header><link rel="stylesheet" type="text/css" href="/styles/settings.css" /></header>
+<div class="managerSettings">
+    <form action="/user/edit" method="post" enctype="multipart/form-data">   
+        <input type="hidden" name="username" value="<%= reqInfo.userInfo.user.username %>">
+        <table>
+            <tr>
+                <td>User Name: </td>
+                <td><input name="username" type="text" placeholder="<%= reqInfo.userInfo.user.username %> "
+                        value="<%= reqInfo.userInfo.user.username ? reqInfo.userInfo.user.username : '' %>"></td> 
+            </tr>
+            <tr>
+                <td>Email: </td>
+                <td><input name="email" type="text"
+                        value="<%= reqInfo.userInfo.user.email ? reqInfo.userInfo.user.email : '' %>"></td> 
+            </tr>  
+            <tr>
+                <td>First Name: </td>
+                <td><input name="firstName" type="text"
+                        value="<%= reqInfo.userInfo.user.firstName ? reqInfo.userInfo.user.firstName : '' %>"></td> 
+            </tr> 
+            <tr>
+                <td>Last Name: </td>
+                <td><input name="lastName" type="text"
+                        value="<%= reqInfo.userInfo.user.lastName ? reqInfo.userInfo.user.lastName : '' %>"></td> 
+            </tr>                        
+            <tr>
+                <td>Password:</td>
+                <td><input name="password" type="password"></td>
+            </tr>
+            <tr>
+                <td>Password Confirmation:</td>
+                <td><input name="passwordConfirm" type="password"></td> 
+            </tr> 
+            <tr>
+                <td>Profile Picture:</td>
+                <td><input id="profilePicture" name="profilePicture" type="file"></td> 
+            </tr>  
+            <tr>
+                <td>Interests:</td>
+                <td><input name="interests" type="text" 
+                    value="<%= reqInfo.userInfo.user.interests ? reqInfo.userInfo.user.interests : '' %>"></td> 
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit"></td>
+
+            </tr>
+    
+        </table>
+    </form>
+</div>
+<p class="errorMessage"><%= errorMessage ? errorMessage : "" %></p>

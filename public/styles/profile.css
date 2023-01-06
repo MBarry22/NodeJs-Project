@@ -1,0 +1,20 @@
+
+h1, h2{
+    color: #60565A;
+}
+.profileContent{
+    float: left;
+    color: #60565A;
+}
+img{
+    height: 150px;
+}
+.header{
+    float: left;
+    color: #60565A;
+}
+ul{
+    list-style:outside;
+    color: #60565A;
+}
+

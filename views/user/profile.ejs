@@ -1,0 +1,49 @@
+<header><link rel="stylesheet" type="text/css" href="/styles/profile.css" /></header>
+<div class="profileContent">
+    <h1>My Profile</h1>
+    <img src="/images/<%= userInfo.user.profilePicture%>"><br/>
+    Username: <%= userInfo.user.username %><br/>
+    Name: <%= userInfo.user.firstName %> <%= userInfo.user.lastName %><br/>
+    Email: <%= userInfo.user.email %><br/>
+    Interests: <%= userInfo.user.interests %><br/>
+    <% if(reqInfo.roles?.length) { %>
+        Roles: <%= reqInfo.roles %>
+        <% } %>
+    <article>
+        <form method="POST" action="/user/profile/comment">
+            <div class="input-field">
+                <textarea type="text" name="comment" placeholder="Leave a comment!"></textarea>
+            </div>
+            <input type="hidden" name="username" value="<%= userInfo.user.username %>">
+            <button type="submit">Add Comment</button>
+            
+        </form>
+    </article>
+
+    <br>
+    <h2>Comments:</h2>
+    <ul>
+        <% if(reqInfo.comments?.length) { %>
+
+        <% for (let i = 0; i < reqInfo.comments.length; i ++ ){%>
+        <% let comment = reqInfo.comments[i] %>
+            <li><b><%= comment.commentAuthor %></b>: <%= comment.commentBody %> </li>
+        <%}%>
+        <% } %>
+
+        </ul>
+
+</div>
+
+<div class="sidebar">
+    <ul>
+    <h2>Profiles</h2>
+      <% if(reqInfo.profileInfo?.length) { %>
+  
+      <% for (let i = 0; i < reqInfo.profileInfo.length; i ++ ){%>
+         <% let profile = reqInfo.profileInfo[i] %>
+          <li><a href="/user/profile/<%= profile.username %>"><%= profile.username %></a></li>
+      <%}%>
+      <% } %>
+  </ul>
+</div>

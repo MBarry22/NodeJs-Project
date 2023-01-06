@@ -1,0 +1,40 @@
+<h1>Edit Roles</h1>
+
+<% let removeableRoles = []%>
+<% removeableRoles = reqInfo.getRoles %>
+<% let addableRoles = [] %>
+<% for(let i = 0; i < roles.length; i++){ %>
+    <% let currentRole = roles[i]; %>
+    <%if(!reqInfo.getRoles.includes(currentRole)){%>
+        <%    addableRoles.push(currentRole);%>
+        <%}; %>
+<%}; %> 
+
+<table>
+    <tr>
+        <form action="/user/roles" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="username" value="<%= reqInfo.userInfo.user.username %>">
+            <input type="hidden" name="action" value="add">
+            <td>Add Role:</td>
+            <td><select name="role">
+                <% for(let i = 0; i < addableRoles.length; i++){ %>
+                    <option value="<%= addableRoles[i] %>"><%= addableRoles[i] %></option> 
+                <%} %> 
+                
+            </select> </td>
+            <td><input type="submit" value="Add Role"></td>
+        </form>       
+    </tr>
+    <tr>
+        <form action="/user/roles" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="username" value="<%= reqInfo.userInfo.user.username %>">
+            <input type="hidden" name="action" value="remove">
+            <td>Remove Role:</td>
+            <td><select name="role">
+                <% for(let i = 0; i < removeableRoles.length; i++){ %>
+                    <option value="<%= removeableRoles[i] %>"><%= removeableRoles[i] %></option> 
+                <%} %>
+            <td><input type="submit" value="Remove Role"></td>
+        </form> 
+    </tr>
+</table>

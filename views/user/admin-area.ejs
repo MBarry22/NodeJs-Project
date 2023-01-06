@@ -1,0 +1,19 @@
+<header><link rel="stylesheet" type="text/css" href="/styles/main.css" /></header>
+<p>Welcome to the Admin dashboard</p>
+
+
+   
+    <% if(reqInfo.profileInfo?.length) { %>
+    <table>
+        <% for (let i = 0; i < reqInfo.profileInfo.length; i ++ ){%>
+        <% let profile = reqInfo.profileInfo[i] %>
+        <tr>
+        <form action="/user/profile/delete" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="username" value="<%= profile.username %>">   
+        <td><a href="/user/profile/<%= profile.username %>"><%= profile.username %> </a></td> <td><input type="submit" value="Delete"> </td>
+        </form>
+    </tr>
+        <%}%>
+    </table>
+        <% } %>
+

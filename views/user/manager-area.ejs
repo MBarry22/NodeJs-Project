@@ -1,0 +1,16 @@
+<header><link rel="stylesheet" type="text/css" href="/styles/main.css" /></header>
+
+<p>Welcome to the Manager dashboard</p>
+
+   
+    <% if(reqInfo.profileInfo?.length) { %>
+    <table>
+        <% for (let i = 0; i < reqInfo.profileInfo.length; i ++ ){%>
+        <% let profile = reqInfo.profileInfo[i] %>
+        <tr>
+           <td><%= profile.username  %></td> <td> <a href="/user/edit/<%= profile.username %>"><button>Edit</button></a></td>
+        </tr>
+        <%}%>
+    </table>
+    <% } %>
+

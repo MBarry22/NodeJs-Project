@@ -1,0 +1,21 @@
+.settings{
+    color: #60565A;
+}
+.managerSettings{
+    color: #60565A;
+}
+.errorMessage{
+    color: red;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+button{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}

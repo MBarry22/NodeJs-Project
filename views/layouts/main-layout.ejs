@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node Project</title>
+    <link rel="stylesheet" type="text/css" href="/styles/main.css" />
+</head>
+<body>
+    <main role="main" class="container">
+      
+        <div class="starter-template">
+          <div class="header">
+            <!-- Show 'Logout' and user name if authenticated. -->
+              <%if (reqInfo.authenticated) { %>
+                  <a href="/">Home</a> | <a href="/user/profile">My Profile</a> | <a href="/user/profiles">Profiles</a> |
+                  <a href="/user/settings">Account Settings</a> |
+                  
+
+            <% if (reqInfo.roles.includes("Admin")) { %>
+              <a href='/user/admin-area'>Admin Area</a> | 
+            <% } %>
+
+            <% if (reqInfo.roles.includes("Admin") || reqInfo.roles.includes("Manager")) { %>
+              <a href='/user/manager-area'>Manager Area</a> | 
+            <% } %>
+
+            <% if (reqInfo.roles.includes("Admin") || reqInfo.roles.includes("Manager")) { %>
+              <a href='/user/manager-roles/'>Edit Roles</a> | 
+            <% } %>
+
+
+                <a href='/user/logout'>Logout</a> | [<%= reqInfo.username %>]
+      
+              <!-- 'else' must be in separate section with curly brackets to work. -->
+              <% } else { %>
+            
+                <a href='/user/login'>Login</a> |
+                <a href='/user/register'>Register</a> 
+              <% } %>
+          </div>
+          <br>
+            <!-- Child view goes here. -->
+            <%- body %>
+            
+        </div>
+        
+    </main>
+    <footer>&copy Mason Porter 2022</footer>
+</body>
+</html>

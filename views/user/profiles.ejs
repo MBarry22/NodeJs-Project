@@ -1,0 +1,19 @@
+<header><link rel="stylesheet" type="text/css" href="/styles/profile.css" /></header>
+<div class="profilesList">
+  <h1>Profiles</h1>
+  <form id="profile-search" action="/user/Profiles" method="GET">
+      <input type="text" name="search" id="search" placeholder="Search by First Name" value="<%= search %>">
+      <button type="submit">Search</button>
+    </form>
+  <ul>
+    
+      <% if(reqInfo.users?.length) { %>
+        
+      <% for (let i = 0; i < reqInfo.users.length; i ++ ){%>
+        <% let profile = reqInfo.users[i] %> 
+          <li><a href="/user/profile/<%= profile.username %>"><%=  profile.firstName + " " + profile.lastName  %></a></li>
+      <%}%>
+      <% } %>
+
+  </ul>
+</div>

@@ -1,0 +1,46 @@
+<form action="/user/register" method="POST" enctype="multipart/form-data">   
+    <table>
+        <tr>
+            <td>User Name: </td>
+            <td><input name="username" type="text"
+                       value="<%= user.username ? user.username : '' %>"></td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td><input name="email" type="text"
+                       value="<%= user.email ? user.email : '' %>"></td>
+        </tr>  
+        <tr>
+            <td>First Name: </td>
+            <td><input name="firstName" type="text"
+                       value="<%= user.firstName ? user.firstName : '' %>"></td>
+        </tr> 
+        <tr>
+            <td>Last Name: </td>
+            <td><input name="lastName" type="text"
+                       value="<%= user.lastName ? user.lastName : '' %>"></td>
+        </tr>                        
+        <tr>
+            <td>Password:</td>
+            <td><input name="password" type="password"></td>
+        </tr>
+        <tr>
+            <td>Password Confirmation:</td>
+            <td><input name="passwordConfirm" type="password"></td>
+        </tr> 
+        <tr>
+            <td>Profile Picture:</td>
+            <td><input id="profilePicture" name="profilePicture" type="file"></td>
+        </tr>  
+        <tr>
+            <td>Interests:</td>
+            <td><input name="interests" type="text" 
+                value="<%= user.interests ? user.interests : '' %>"></td>
+        </tr> 
+        <tr>
+            <td></td>
+            <td> <input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+<%= errorMessage %><br/>
